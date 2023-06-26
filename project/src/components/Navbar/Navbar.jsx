@@ -61,10 +61,6 @@ const NavBar = () => {
                         <Link to="/"  className="btn">
                             RunYourBycicle
                         </Link> 
-                        <li><ButtonC clicked={clicked} text={search} clickChange={() => {click()}} className="connexion/decoButton">
-                            </ButtonC>
-                        </li>
-                       
                     </ul>
                 </nav>
             </div>
