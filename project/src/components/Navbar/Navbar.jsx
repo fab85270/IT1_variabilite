@@ -10,32 +10,6 @@ import './Navbar.css';
 
 const NavBar = () => {
 
-    /* Utilisation des hooks(contexts,states) */
-    
-    const {clicked,changeContexteBouton} = useContext(BoutonContext);
-    
-    let navigate = useNavigate(); 
-
-    /* Definition du mot clé de recherche */
-    let search ="";
-    if(clicked){
-        search = "Disconnect";
-    } else{
-        search = "Connect";
-    }
-
-    /* Fonction des actions réalisées suite au click du bonton connexion/déconnection  */
-
-    const click = async() => { //C'est bien de ne mettre que une fonction dans un "OnClick d'un boutton"
-
-        /* Redirection vers la page du formulaire de connection */
-        navigate("/connect");
-
-        if(clicked){
-            changeContexteBouton(); //Afin de changer la valeur du context du bouton (se Connecter/Deconnecter)
-            navigate("/");
-        }
-    }
         return (
             <div className="divNav">
                 <nav>
@@ -54,11 +28,10 @@ const NavBar = () => {
                            Home
                             
                         </Link>
-                        <Link to="/" className="btn">
+                        <Link to="/inscription" className="btn">
                             RunYourCar
                         </Link>
-                        
-                        <Link to="/"  className="btn">
+                        <Link to="/inscription"  className="btn">
                             RunYourBycicle
                         </Link> 
                     </ul>

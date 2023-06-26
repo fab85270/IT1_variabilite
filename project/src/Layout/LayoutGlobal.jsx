@@ -10,7 +10,7 @@ const LayoutGlobal= ({children}) =>{
 
     return(
                 <div className="layoutGlobal"> 
-                <NavBar></NavBar>   
+                <NavBar/>  
                     {children} 
                     <Card className='footer-container'>
                         <Card.Footer className="text-muted">
