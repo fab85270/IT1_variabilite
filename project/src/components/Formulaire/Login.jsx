@@ -1,9 +1,21 @@
 import React from 'react';
 
-/* Ajouter une méthode pour récupérer dans JSON et vérifier si la personne existe
--> authoriser la connexion et rediriger vers l'application (Bicicle ou Bagnole) si la personne est connue */
 
 function Login() {
+
+const navigate = useNavigate(); 
+/* Vérifier que l'utilisateur qui tente de se connecter s'est bien authentifié */
+
+
+  const handleButtonClick = () => {
+
+    /* Ajouter une méthode pour récupérer dans JSON et vérifier si la personne existe dans celui-ci
+    -> authoriser la connexion et rediriger vers l'application (Bicicle ou Bagnole) si la personne est connue */
+    
+    //navigate('/');// à définir 
+  };
+
+
   return (
     <div>
       <h1>Connexion</h1>
@@ -16,7 +28,7 @@ function Login() {
           <label htmlFor="password">Mot de passe:</label>
           <input type="password" id="password" name="password" required />
         </div>
-        <button type="submit">Se connecter</button>
+        <button type="submit" onClick={handleButtonClick}> Se connecter</button>
       </form>
     </div>
   );

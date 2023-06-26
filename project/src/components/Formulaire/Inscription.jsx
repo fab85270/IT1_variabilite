@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 
-/* Ajouter un bouton en mode "Vous êtes déhà authentifié et qui redirige vers la page de connexion" */
+/* Il n'y aura pas de vérification d'homonymes lors de l'inscription d'un utilisateur */
 
 const Inscription = () => {
   const [nom, setNom] = useState('');
@@ -19,6 +19,7 @@ const Inscription = () => {
       alert("Veuillez remplir tous les champs obligatoires.");
       return;
     }
+    
     alert("Inscription réussie !");
   };
 

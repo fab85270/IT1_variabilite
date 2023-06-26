@@ -14,6 +14,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/inscription" element={<InscriptionPage />} />
         <Route path="/velolocation" element={<VeloPage />} />
+        <Route path="/voitureLocation" element="" />
       </Routes>
     </Router>
   );
