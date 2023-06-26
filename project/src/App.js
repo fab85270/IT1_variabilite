@@ -12,7 +12,4 @@ function App() {
     </Router>
   );
 }
-
-
-
 export default App; // Ceci permet d'avoir le composant app dans toute l'application.
