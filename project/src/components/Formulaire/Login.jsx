@@ -1,9 +1,10 @@
 import React from 'react';
 
 
+
 function Login() {
 
-const navigate = useNavigate(); 
+//const navigate = useNavigate(); 
 /* Vérifier que l'utilisateur qui tente de se connecter s'est bien authentifié */
 
 
@@ -14,7 +15,6 @@ const navigate = useNavigate();
     
     //navigate('/');// à définir 
   };
-
 
   return (
     <div>

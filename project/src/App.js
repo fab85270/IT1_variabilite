@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import VeloPage from './pages/VeloPage';
 import LoginPage from './pages/LoginPage';
 import InscriptionPage from './pages/InscriptionPage';
+import VoiturePage from './pages/VoiturePage';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/inscription" element={<InscriptionPage />} />
         <Route path="/velolocation" element={<VeloPage />} />
-        <Route path="/voitureLocation" element="" />
+        <Route path="/voitureLocation" element={<VoiturePage />}/>
       </Routes>
     </Router>
   );
