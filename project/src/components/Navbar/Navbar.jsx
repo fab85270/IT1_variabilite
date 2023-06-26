@@ -1,8 +1,6 @@
 
 import React, {useContext, useState } from 'react';
 import { useNavigate,Link } from "react-router-dom";
-import { BoutonContext } from '../../Context/BoutonContext';
-import ButtonC from '../Button/ButtonC';
 import logoLigneProduit from '../../Images/logoImage.jpg';
 
 import './Navbar.css';

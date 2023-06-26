@@ -10,7 +10,10 @@ function InscriptionPage(){
   
   return (      
     <LayoutGlobal children={
-        <Inscription/>     
+      <>
+        <Inscription/>
+        <p>test</p>
+      </>
     }></LayoutGlobal>
       )    
     } 
