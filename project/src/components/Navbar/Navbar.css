@@ -1,0 +1,22 @@
+nav {
+    height:70px;
+    background: black;
+}
+
+.fonction {
+    list-style-type: none;
+    background: black;
+    height: 100%;
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    position: relative;
+}
+
+.btn {
+    margin-right: 10px;
+    color: #f1f1f1;
+    cursor: pointer;
+
+}
+
