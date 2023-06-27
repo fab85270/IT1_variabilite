@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .centered {
+    text-align: center;
+  }
+
+  .selected {
+    border: 2px solid blue;
+    outline: none; /* Supprime l'effet d'outline par défaut sur l'image */
+  }
