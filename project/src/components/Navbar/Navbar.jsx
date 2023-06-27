@@ -3,14 +3,12 @@ import {Link } from "react-router-dom";
 import logoLigneProduit from '../../Images/logoImage.jpg';
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
-
 import './Navbar.css';
-
 
 const NavBar = () => {
 
     /* Récupération de la méthode changeContexteUser du context UserContext */
-    const{changeContexteUser} = useContext(UserContext);
+    const{nom,prenom,changeContexteUser} = useContext(UserContext);
     const{isConnected,setIsConnected} = useContext(ConnectionContext);
 
     const handleClick = () => { // fonction appelée quand on clique sur le lien
@@ -19,7 +17,6 @@ const NavBar = () => {
             setIsConnected(false);
         }
       };
-
         return (
             <div className="divNav">
                 <nav>
@@ -49,6 +46,13 @@ const NavBar = () => {
                                     Manage Profil
                                 </Link> 
                             )
+                        }
+                        {   isConnected && (
+                            <span style={{ color: 'white' }}>
+                                Welcome {nom} {prenom}
+                            </span> 
+                        )
+                            
                         }
                     </ul>
                 </nav>

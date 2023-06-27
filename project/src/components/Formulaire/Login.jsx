@@ -33,8 +33,7 @@ function Login() {
             setIsConnected(!isConnected);
         else (le cas ou le cas n'est pas reconnu, on va supprimer les données adresse et mdp stockée dans le userContexte) avec : 
         5. changeContexteUser("","","","","")*/
-        
-
+ 
   };
   return (
     <div>
