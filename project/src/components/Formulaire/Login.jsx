@@ -27,7 +27,7 @@ function Login() {
           
         /*if le mec est bien dans fichier JSON ou BDD 
          1. on va chercher l'ensemble de ses infos (tel, nom, prenom) => pour tout avoir 
-         2. on ajouter ces informations dans le contexte avec la méthode suivante : 
+         2. on ajoute ces informations dans le contexte avec la méthode suivante : 
          3. changeContexteUser(adresseMail,mdp,nom,prenom,numeroTel)
          4. il faut aussi init le contexte de connection avec : 
             setIsConnected(!isConnected);
