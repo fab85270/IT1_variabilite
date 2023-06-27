@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import boiteManuelle from '../../Images/boiteManuelle.jpg';
-import boiteAuto from '../../Images/boiteAuto.jpg';
+import boiteManuelle from '../../Images/voitureManuelle.png';
+import boiteAuto from '../../Images/voitureAuto.jpg';
 
 function ChoixVehicule(){
     
@@ -28,28 +28,16 @@ function ChoixVehicule(){
 
       return (
         <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="option1"
-              checked={selectedOption === 'option1'}
-              onChange={() => handleOptionClick('option1')}
-            />
-            <img src={boiteManuelle} alt="Boite manuelle" />
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="option2"
-              checked={selectedOption === 'option2'}
-              onChange={() => handleOptionClick('option2')}
-            />
-            <img src={boiteAuto} alt="Boite automatique" />
-          </label>
-        </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div>
+              <img src={boiteManuelle} alt="Image 1" style={{ width: '100%', height: 'auto' }} />
+                <p>Description de l'image 1</p>
+            </div>
+            <div>
+              <img src={boiteAuto} alt="Image 2" style={{ width: '20%', height: 'auto' }}/>
+                <p>Description de l'image 2</p>
+            </div>
+          </div>
         <button type="submit">Soumettre</button>
       </form>
       );
