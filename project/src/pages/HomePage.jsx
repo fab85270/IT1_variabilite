@@ -14,6 +14,7 @@ function HomePage(){
               + compléter avec les membres du groupes 
               + compléter avec les rôles de chacuns
               + voir si vous avez des idées  </p>
+              
           </div>                    
         </>       
     }></LayoutGlobal>

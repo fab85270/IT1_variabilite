@@ -1,12 +1,11 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React  from 'react';
+
 
 
 function Login() {
 
-const navigate = useNavigate(); 
-/* Vérifier que l'utilisateur qui tente de se connecter s'est bien authentifié */
 
+/* Vérifier que l'utilisateur qui tente de se connecter s'est bien authentifié */
 
   const handleButtonClick = () => {
 
@@ -14,6 +13,7 @@ const navigate = useNavigate();
     -> authoriser la connexion et rediriger vers l'application (Bicicle ou Bagnole) si la personne est connue */
     
     //navigate('/');// à définir 
+
   };
 
 

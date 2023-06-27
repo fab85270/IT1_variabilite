@@ -8,7 +8,7 @@ import React,{createContext, useState} from 'react'
     nom: "",
     prenom: "",
     numeroTel: "",
-    setIdentifiant: () => {},
+    setAdresseMail: () => {},
     setNom: () => {},
     setPrenom: () => {},
     setNumero: () => {},
@@ -29,7 +29,6 @@ export const UserContextProvider = ({children}) => {
 
         /* Le contexte sera mise à jour lors de l'inscription, connexion ou modification des informations utilisateurs 
          A noter que l'adresse mail, faisant office d'identifiant, ne pourra être modifié */
-        
         setMdp(mdp);  
         setAdresseMail(adresseMail); //
         setNom(nom);
@@ -37,7 +36,7 @@ export const UserContextProvider = ({children}) => {
         setNumero(numeroTel);
         
     }
-      return (<UserContext.Provider value={{adresseMail,mdp,nom,prenom,numeroTel,changeContexteUser}}> {children} </UserContext.Provider>)
+      return (<UserContext.Provider value={{adresseMail,mdp,nom,prenom,numeroTel,changeContexteUser,setAdresseMail,setNom,setPrenom,setNumero,setMdp}}> {children} </UserContext.Provider>)
   };
   
   
