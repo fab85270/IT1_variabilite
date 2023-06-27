@@ -1,12 +1,11 @@
 import React from 'react';
+import { useNavigate,Link } from "react-router-dom";
 
 
 function Login() {
 
 const navigate = useNavigate(); 
 /* Vérifier que l'utilisateur qui tente de se connecter s'est bien authentifié */
-
-
   const handleButtonClick = () => {
 
     /* Ajouter une méthode pour récupérer dans JSON et vérifier si la personne existe dans celui-ci
