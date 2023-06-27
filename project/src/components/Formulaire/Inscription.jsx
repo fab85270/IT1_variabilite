@@ -1,15 +1,16 @@
 import React,{useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import {UserContext} from '../../Context/UserContext';
+import {ConnectionContext} from '../../Context/ConnectionContext';
 
 
 /* Il n'y aura pas de vérification d'homonymes lors de l'inscription d'un utilisateur */
 
 const Inscription = () => {
 
-  /* Récupération des valeurs et méthode du UserContext */
-
-  const{adresseMail,mdp,nom,prenom,numeroTel,setAdresseMail,setNom,setPrenom,setNumero,setMdp} = useContext(UserContext);
+  /* Récupérer méthodes de UserContext et ConnectionContext pour changer les valeurs du contexte */
+  const{adresseMail,mdp,nom,prenom,numeroTel,setAdresseMail,setNom,setPrenom,setNumero,setMdp,changeContexteUser} = useContext(UserContext);
+  const{isConnected,setIsConnected} = useContext(ConnectionContext);
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,15 +18,17 @@ const Inscription = () => {
     // Vérification de la saisie des champs obligatoires
     if (!nom || !prenom || !adresseMail || !numeroTel || !mdp) {
       alert("Veuillez remplir tous les champs obligatoires.");
+      changeContexteUser("","","","",""); 
       return;
     }
 
-    /*TODOOOO ANXHELA  */
+    /* Etape à réaliser ensuite */
     /*
     1.  Inscrire dans un fichier JSON ou une base  de données les informations de l'utilisateur qui vient de s'enregistrer.
     2.  rediriger vers la page interessante avec navigate (il faut pas de rafraichissement de page sinon le context est perdu).  
     alert("Inscription réussie !");
-
+    3. Modifier le contexte pour indiquer que l'utilisateur est deconnecté avec 
+      setIsConnected(!isConnected)
 */  
   };
 

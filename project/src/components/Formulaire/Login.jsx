@@ -1,6 +1,7 @@
 
 import React,{useContext} from 'react';
 import {UserContext} from '../../Context/UserContext';
+import {ConnectionContext} from '../../Context/ConnectionContext';
 import { Form, Button } from 'react-bootstrap';
 
 
@@ -8,8 +9,9 @@ import { Form, Button } from 'react-bootstrap';
 
 function Login() {
 
-    /* Récupérer méthode de UserContext pour changer les valeurs du contexte */
+    /* Récupérer méthodes de UserContext et ConnectionContext pour changer les valeurs du contexte */
     const{adresseMail,mdp,changeContexteUser,setAdresseMail,setMdp} = useContext(UserContext);
+    const{isConnected,setIsConnected} = useContext(ConnectionContext);
 
       /* Méthode pour vérifier que l'utilisateur est bien authentifié */
       const handleSubmit = () => {
@@ -22,12 +24,16 @@ function Login() {
         contexte user 
         Etape 5 : Si l'utilisateur n'existe pas, afficher une alert à l'écran (vous n'êtes pas autorisé à vous connecter */
           
-        //if le mec est bien dans fichier JSON ou BDD 
-        // on va chercher l'ensemble de ses infos (tel, nom, prenom) => pour tout avoir 
-        // on ajouter ces informations dans le contexte avec la méthode suivante : 
-        //changeContexteUser(adresseMail,mdp,nom,prenom,numeroTel)
-        // else (le cas ou le cas n'est pas reconnu, on va supprimer les données adresse et mdp stockée dans le userContexte) avec : 
-        //changeContexteUser("","","","","")
+        /*if le mec est bien dans fichier JSON ou BDD 
+         1. on va chercher l'ensemble de ses infos (tel, nom, prenom) => pour tout avoir 
+         2. on ajouter ces informations dans le contexte avec la méthode suivante : 
+         3. changeContexteUser(adresseMail,mdp,nom,prenom,numeroTel)
+         4. il faut aussi init le contexte de connection avec : 
+            setIsConnected(!isConnected);
+        else (le cas ou le cas n'est pas reconnu, on va supprimer les données adresse et mdp stockée dans le userContexte) avec : 
+        5. changeContexteUser("","","","","")*/
+        
+
 
   };
   return (

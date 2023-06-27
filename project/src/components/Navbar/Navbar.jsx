@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import {Link } from "react-router-dom";
 import logoLigneProduit from '../../Images/logoImage.jpg';
 import {UserContext} from '../../Context/UserContext';
+import {ConnectionContext} from '../../Context/ConnectionContext';
 
 import './Navbar.css';
 
@@ -10,10 +11,13 @@ const NavBar = () => {
 
     /* Récupération de la méthode changeContexteUser du context UserContext */
     const{changeContexteUser} = useContext(UserContext);
+    const{isConnected,setIsConnected} = useContext(ConnectionContext);
 
     const handleClick = () => { // fonction appelée quand on clique sur le lien
-        
         changeContexteUser("","","","","");
+        if(isConnected == true){
+            setIsConnected(false);
+        }
       };
 
         return (
