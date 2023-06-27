@@ -2,6 +2,7 @@ import './App.css';
 import React from "react";
 import HomePage from './pages/HomePage';
 import VeloPage from './pages/VeloPage';
+import VoiturePage from './pages/VoiturePage';
 import LoginPage from './pages/LoginPage';
 import InscriptionPage from './pages/InscriptionPage';
 import PaymentPage from './pages/PaiementPage/PaiementPage';
@@ -25,7 +26,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/inscription" element={<InscriptionPage />} />
           <Route path="/velolocation" element={<VeloPage />} />
-          <Route path="/voitureLocation" element="" />
+          <Route path="/voitureLocation" element={<VoiturePage />}/>
           <Route path ="/paymentPage" element = {<PaymentPage/>}/>
         </Routes>
       </Router>
