@@ -1,26 +1,32 @@
-import React, { useState } from 'react';
+import React,{useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
+import {UserContext} from '../../Context/UserContext';
 
 
 /* Il n'y aura pas de vérification d'homonymes lors de l'inscription d'un utilisateur */
 
 const Inscription = () => {
-  const [nom, setNom] = useState('');
-  const [prenom, setPrenom] = useState('');
-  const [email, setEmail] = useState('');
-  const [telephone, setTelephone] = useState('');
-  const [motDePasse, setMotDePasse] = useState('');
 
+  /* Récupération des valeurs et méthode du UserContext */
+
+  const{adresseMail,mdp,nom,prenom,numeroTel,setAdresseMail,setNom,setPrenom,setNumero,setMdp} = useContext(UserContext);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Vérification des champs obligatoires
-    if (!nom || !prenom || !email || !telephone || !motDePasse) {
+    // Vérification de la saisie des champs obligatoires
+    if (!nom || !prenom || !adresseMail || !numeroTel || !mdp) {
       alert("Veuillez remplir tous les champs obligatoires.");
       return;
     }
-    
+
+    /*TODOOOO ANXHELA  */
+    /*
+    1.  Inscrire dans un fichier JSON ou une base  de données les informations de l'utilisateur qui vient de s'enregistrer.
+    2.  rediriger vers la page interessante avec navigate (il faut pas de rafraichissement de page sinon le context est perdu).  
     alert("Inscription réussie !");
+
+*/  
   };
 
   return (
@@ -51,8 +57,8 @@ const Inscription = () => {
           <Form.Label>Adresse e-mail</Form.Label>
           <Form.Control
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={adresseMail}
+            onChange={(e) => setAdresseMail(e.target.value)}
             required
           />
         </Form.Group>
@@ -61,8 +67,8 @@ const Inscription = () => {
           <Form.Label>Numéro de téléphone</Form.Label>
           <Form.Control
             type="tel"
-            value={telephone}
-            onChange={(e) => setTelephone(e.target.value)}
+            value={numeroTel}
+            onChange={(e) => setNumero(e.target.value)}
             required
           />
         </Form.Group>
@@ -71,8 +77,8 @@ const Inscription = () => {
           <Form.Label>Mot de passe</Form.Label>
           <Form.Control
             type="password"
-            value={motDePasse}
-            onChange={(e) => setMotDePasse(e.target.value)}
+            value={mdp}
+            onChange={(e) => setMdp(e.target.value)}
             required
           />
         </Form.Group>

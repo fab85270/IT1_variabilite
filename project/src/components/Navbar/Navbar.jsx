@@ -1,19 +1,27 @@
-
-import React, {useContext, useState } from 'react';
-import { useNavigate,Link } from "react-router-dom";
+import React,{useContext} from 'react';
+import {Link } from "react-router-dom";
 import logoLigneProduit from '../../Images/logoImage.jpg';
+import {UserContext} from '../../Context/UserContext';
 
 import './Navbar.css';
 
 
 const NavBar = () => {
 
+    /* Récupération de la méthode changeContexteUser du context UserContext */
+    const{changeContexteUser} = useContext(UserContext);
+
+    const handleClick = () => { // fonction appelée quand on clique sur le lien
+        
+        changeContexteUser("","","","","");
+      };
+
         return (
             <div className="divNav">
                 <nav>
                     <ul className="fonction">
                         <li>
-                            <Link to="/" className="btn">
+                            <Link to="/" className="btn" onClick={handleClick}>
                                 <img 
                                     alt="RentYourVehicle"
                                     src={logoLigneProduit}
@@ -22,14 +30,14 @@ const NavBar = () => {
                                 />   
                             </Link>  
                         </li>    
-                        <Link to="/"  className="btn">
+                        <Link to="/" className="btn" onClick={handleClick}>
                            Home
                             
                         </Link>
-                        <Link to="/inscription" className="btn">
+                        <Link to="/inscription" className="btn" onClick={handleClick}>
                             RunYourCar
                         </Link>
-                        <Link to="/inscription"  className="btn">
+                        <Link to="/inscription"  className="btn" onClick={handleClick}>
                             RunYourBycicle
                         </Link> 
                     </ul>

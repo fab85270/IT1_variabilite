@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import InscriptionPage from './pages/InscriptionPage';
 import PaymentPage from './pages/PaiementPage/PaiementPage';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import {UserContextProvider} from './Context/UserContext';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
   };
 
   return (
+  <UserContextProvider>
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -25,6 +27,7 @@ function App() {
         <Route path ="/paymentPage" element = {<PaymentPage/>}/>
       </Routes>
     </Router>
+  </UserContextProvider>
   );
 }
 export default App; // Ceci permet d'avoir le composant app dans toute l'application.
