@@ -1,6 +1,5 @@
 
-import React, {useContext, useState } from 'react';
-import { useNavigate,Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 import logoLigneProduit from '../../Images/logoImage.jpg';
 
 import './Navbar.css';
