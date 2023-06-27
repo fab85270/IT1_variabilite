@@ -35,8 +35,7 @@ const NavBar = () => {
                             </Link>  
                         </li>    
                         <Link to="/" className="btn" onClick={handleClick}>
-                           Home
-                            
+                           Home     
                         </Link>
                         <Link to="/inscription" className="btn" onClick={handleClick}>
                             RunYourCar
@@ -44,6 +43,13 @@ const NavBar = () => {
                         <Link to="/inscription"  className="btn" onClick={handleClick}>
                             RunYourBycicle
                         </Link> 
+                        {
+                            isConnected && (
+                                <Link to="/"  className="btn">
+                                    Manage Profil
+                                </Link> 
+                            )
+                        }
                     </ul>
                 </nav>
             </div>

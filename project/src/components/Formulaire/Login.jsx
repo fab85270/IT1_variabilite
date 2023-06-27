@@ -3,15 +3,16 @@ import React,{useContext} from 'react';
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
 import { Form, Button } from 'react-bootstrap';
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
     /* Récupérer méthodes de UserContext et ConnectionContext pour changer les valeurs du contexte */
     const{adresseMail,mdp,changeContexteUser,setAdresseMail,setMdp} = useContext(UserContext);
     const{isConnected,setIsConnected} = useContext(ConnectionContext);
+
+    /* Initialisation de la redirection sans rafraichissement */
+    const navigate = useNavigate(); 
 
       /* Méthode pour vérifier que l'utilisateur est bien authentifié */
       const handleSubmit = () => {
@@ -33,7 +34,6 @@ function Login() {
         else (le cas ou le cas n'est pas reconnu, on va supprimer les données adresse et mdp stockée dans le userContexte) avec : 
         5. changeContexteUser("","","","","")*/
         
-
 
   };
   return (
