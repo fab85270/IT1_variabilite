@@ -20,17 +20,7 @@ const NavBar = () => {
         return (
             <div className="divNav">
                 <nav>
-                    <ul className="fonction">
-                        <li>
-                            <Link to="/" className="btn" onClick={handleClick}>
-                                <img 
-                                    alt="RentYourVehicle"
-                                    src={logoLigneProduit}
-                                    wight="45"
-                                    height="45"
-                                />   
-                            </Link>  
-                        </li>    
+                    <ul className="fonction">   
                         <Link to="/" className="btn" onClick={handleClick}>
                            Home     
                         </Link>
