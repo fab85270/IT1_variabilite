@@ -5,7 +5,6 @@ import ChoixVehicule from '../components/Formulaire/ChoixVehicule';
 
 function VoiturePage(){ 
   
-  
   return (      
     <LayoutGlobal children={
         <>   
