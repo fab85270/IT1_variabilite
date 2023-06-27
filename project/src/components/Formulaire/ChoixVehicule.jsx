@@ -7,13 +7,17 @@ import './ChoixVehicule.css';
 function ChoixVehicule(){
     
   /* Definition des constantes */
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null); // pour savoir qu'elle image est séléctionnée
+  const [isChecked, setIsChecked] = useState(false); // pour savoir si la case est cochée 
   
-  
-
-  /* Méthode qui va selectionner l'image quand on aura cliqué dessus*/
+  /* Méthode utilisée pour gérer le le clic sur une image dans un formulaire */
   const handleImageClick = (image) => {
     setSelectedImage(image);
+  };
+
+  /* Méthode utilisée pour le changement d'état de la case à cocher dans le formulaire */
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
   };
 
   /* Méthode appelée lorsque le formulaire sera soumit : permettra de définir qu'elle image à été séléctionée */
@@ -21,6 +25,11 @@ function ChoixVehicule(){
     event.preventDefault();
     // TODO. 
     console.log('Image sélectionnée :', selectedImage);
+    if(isChecked){
+      console.log('La case est cochée :');
+    } else {
+      console.log('La case n\'est pas cochée');
+    }
   };
 
   return (
@@ -47,6 +56,14 @@ function ChoixVehicule(){
               />
               <p>Voiture manuelle</p>
             </div>
+            <label>
+              <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+              />
+              Souscrire à une assurance complémentaire
+            </label>
           </div>
           <button type="submit">Soumettre votre choix</button>
         </form>
