@@ -29,18 +29,24 @@ function ChoixVehicule(){
         <h1>Choisir un modèle de voiture : manuel ou automatique</h1>
         <form onSubmit={handleSubmit}>
           <div className="image-container">
-            <img
-              src={boiteAuto}
-              alt="Voiture Automatique"
-              className={selectedImage === 'image1' ? 'selected' : 'image'}
-              onClick={() => handleImageClick('image1')}
-            />
-            <img
-              src={boiteManuelle}
-              alt="Voiture Manuelle"
-              className={selectedImage === 'image2' ? 'selected' : 'image'}
-              onClick={() => handleImageClick('image2')}
-            />
+            <div>
+              <img
+                src={boiteAuto}
+                alt="Voiture Automatique"
+                className={selectedImage === 'image1' ? 'selected' : 'image'}
+                onClick={() => handleImageClick('image1')}
+              />
+              <p>Voiture automatique</p>
+            </div>
+            <div>
+              <img
+                src={boiteManuelle}
+                alt="Voiture Manuelle"
+                className={selectedImage === 'image2' ? 'selected' : 'image'}
+                onClick={() => handleImageClick('image2')}
+              />
+              <p>Voiture manuelle</p>
+            </div>
           </div>
           <button type="submit">Soumettre votre choix</button>
         </form>
