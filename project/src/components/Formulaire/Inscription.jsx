@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
+import { Navigate } from 'react-router-dom';
 
 
 /* Il n'y aura pas de vérification d'homonymes lors de l'inscription d'un utilisateur */
@@ -21,7 +22,7 @@ const Inscription = () => {
       changeContexteUser("","","","",""); 
       return;
     }
-
+    
     /* Etape à réaliser ensuite */
     /*
     1.  Inscrire dans un fichier JSON ou une base  de données les informations de l'utilisateur qui vient de s'enregistrer.
