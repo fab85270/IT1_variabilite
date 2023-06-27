@@ -1,6 +1,5 @@
 import React,{useContext} from 'react';
 import {Link } from "react-router-dom";
-import logoLigneProduit from '../../Images/logoImage.jpg';
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
 import './Navbar.css';

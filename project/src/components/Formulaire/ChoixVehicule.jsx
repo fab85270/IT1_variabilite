@@ -1,47 +1,52 @@
 import React, { useState } from 'react';
 import boiteManuelle from '../../Images/voitureManuelle.png';
-import boiteAuto from '../../Images/voitureAuto.jpg';
+import boiteAuto from '../../Images/voitureAuto.png';
+
 
 function ChoixVehicule(){
     
-    const [selectedOption, setSelectedOption] = useState('');
-
-    const handleOptionClick = (option) => {
-        setSelectedOption(option);
-      };
-
-      const handleSubmit = (event) => { // fonction appeler lorsqu'il y a soumission du formulaire
-        event.preventDefault();
-        
-        // Le formulaire ne peut être envoyé vide 
-        if (selectedOption == ''){
-            alert("Veuillez saisir une des deux options (manuelle/automatique");
-        }else {
-            //TODO 
-            // Inscrire la location dans un fichier JSON pour sauvegarde (voir ce que Anxhela a fait)
-            // Dans ce fichier JSON, sera indiqué les informations propre de la personne, une date de début, état = (en cours/terminée)
-            // ainsi qu'une date de fin (qui sera renseignée quand la location sera terminée)
-            //+ ajouter la gestion de l'assurance (optionnel -)
-        }
+  /* Definition des constantes */
+  const [selectedImage, setSelectedImage] = useState(null);
+  const voitureManuelle = 'https://fr.freepik.com/https://img.freepik.com/vecteurs-premium/sourire-dessin-anime-voiture-rouge-blanc_29190-4845.jpg?w=2000photos-vecteurs-libre/voiture-dessin-anime';
+  const voitureAuto = 'https://fr.vecteezy.com/art-vectoriel/3236135-dessin-anime-voiture-coulehttps://static.vecteezy.com/ti/vecteur-libre/p3/3236135-dessin-anime-voiture-couleur-brillante-illustration-pour-enfants-gratuit-vectoriel.jpgur-brillante-illustration-pour-enfants';
   
-      };
 
-      return (
-        <form onSubmit={handleSubmit}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div>
-              <img src={boiteManuelle} alt="Image 1" style={{ width: '100%', height: 'auto' }} />
-                <p>Description de l'image 1</p>
-            </div>
-            <div>
-              <img src={boiteAuto} alt="Image 2" style={{ width: '20%', height: 'auto' }}/>
-                <p>Description de l'image 2</p>
-            </div>
-          </div>
-        <button type="submit">Soumettre</button>
+  /* Méthode qui va selectionner l'image quand on aura cliqué dessus*/
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  /* Méthode appelée lorsque le formulaire sera soumit : permettra de définir qu'elle image à été séléctionée */
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO. 
+    console.log('Image sélectionnée :', selectedImage);
+  };
+
+  return (
+    <div>
+      <h1>Choisir un des deux modèles de voiture : manuelle ou automatique</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="image-container">
+          <img
+            src={boiteAuto}
+            alt="Voiture Automatique"
+            className={selectedImage === 'image1' ? 'selected' : ''}
+            onClick={() => handleImageClick('image1')}
+          />
+          <img
+            src={boiteManuelle}
+            alt="Voiture Manuelle"
+            className={selectedImage === 'image2' ? 'selected' : ''}
+            onClick={() => handleImageClick('image2')}
+          />
+        </div>
+        <button type="submit">Soumettre votre choix</button>
       </form>
-      );
-    }
+    </div>
+  );
+};
+
 
 export default ChoixVehicule;
     
