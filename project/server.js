@@ -1,17 +1,21 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors');
 
 const app = express();
 const port = 3001; // Server en porte 3001
 
 app.use(express.json());
 
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 // Cette requete POST permet d'ajouter un nouveau compte dans un fichier json
 app.post('/addUser', (req, res) => {
 
     const newUser = req.body;
-
+    console.log(req.body)
     fs.readFile('./src/data/users.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Echec de lecture du fichier:', err);
