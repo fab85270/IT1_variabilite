@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import boiteManuelle from '../../Images/voitureManuelle.png';
 import boiteAuto from '../../Images/voitureAuto.png';
+import { useNavigate } from 'react-router-dom';
 import './ChoixVehicule.css';
 
 
@@ -9,6 +10,13 @@ function ChoixVehicule(){
   /* Definition des constantes */
   const [selectedImage, setSelectedImage] = useState(null); // pour savoir qu'elle image est séléctionnée
   const [isChecked, setIsChecked] = useState(false); // pour savoir si la case est cochée 
+
+  /* Initialisation de la redirection sans rafraichissement */
+  const navigate = useNavigate(); 
+
+  /* Init variable price */
+
+  var price = 0;
   
   /* Méthode utilisée pour gérer le le clic sur une image dans un formulaire */
   const handleImageClick = (image) => {
@@ -23,17 +31,26 @@ function ChoixVehicule(){
   /* Méthode appelée lorsque le formulaire sera soumit : permettra de définir qu'elle image à été séléctionée */
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO. 
-    console.log('Image sélectionnée :', selectedImage);
-    if(isChecked){
-      console.log('La case est cochée :');
-    } else {
-      console.log('La case n\'est pas cochée');
-    }
-  };
 
+    if(selectedImage == 'image1'){
+      price = 100;
+    } else if (selectedImage == 'image1' && isChecked){
+      price = 150;
+      console.log(2);
+    } else if(selectedImage == 'image2'){
+      price = 50;
+      console.log(3);
+    } else if(selectedImage == 'image2' && isChecked){
+      price = 70;
+      console.log(4);
+    }
+    
+    /* Redirection vers la page de paiement */
+    navigate(`/paymentPage?argument=${price}`)
+
+  };
   return (
-    <div className="container">
+    <div className="containerBis">
       <div className="centered">
         <h1>Choisir un modèle de voiture : manuel ou automatique</h1>
         <form onSubmit={handleSubmit}>
