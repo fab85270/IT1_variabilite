@@ -2,9 +2,7 @@ import GooglePayButton from '@google-pay/button-react';
 
 const GooglePayForm = () => {
     return(
-        <>
-        <h1>Paiement Google Pay</h1>
-        
+        <>        
         <GooglePayButton
             environment="TEST"
             paymentRequest={{

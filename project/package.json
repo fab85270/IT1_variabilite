@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@google-pay/button-react": "^3.0.9",
+    "@paypal/react-paypal-js": "^8.0.0",
     "@stripe/react-stripe-js": "^2.1.1",
     "@stripe/stripe-js": "^1.54.1",
     "@testing-library/jest-dom": "^5.16.5",

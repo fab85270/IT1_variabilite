@@ -1,9 +1,26 @@
-import GooglePayButton from '@google-pay/button-react';
+import {PayPalScriptProvider, PayPalButtons} from '@paypal/react-paypal-js'
 
 const Paypal = () => {
     return(
         <>
-            <h1>Paiement Paypal</h1>
+            <PayPalButtons
+                createOrder={(data,action) =>{
+                    return action.order.create({
+                        purchase_units:[
+                            {
+                                amount:{
+                                    currency_code:"USD",
+                                    value:"10.00"
+                                }
+                            }
+                        ]
+                    })
+
+                }}
+                onApprove={(data,actions)=>{
+
+                }}
+            />
         </>    
     )
 
