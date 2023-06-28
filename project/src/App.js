@@ -23,45 +23,24 @@ function App() {
         clientSecret: '{{CLIENT_SECRET}}',
     };
 
-    return ( <
-        UserContextProvider >
-        <
-        ConnectionContextProvider >
-        <
-        Router >
-        <
-        Routes >
-        <
-        Route path = "/*"
-        element = { < HomePage / > }
-        /> <
-        Route path = "/:category/login"
-        element = { < LoginPage / > }
-        /> <
-        Route path = "/:category/inscription"
-        element = { < InscriptionPage / > }
-        /> <
-        Route path = "/bike/location/"
-        element = { < VeloPage / > }
-        /> <
-        Route path = "/car/location/"
-        element = { < VoiturePage / > }
-        /> <
-        Route path = "/paymentPage"
-        element = { < PaymentPage / > }
-        /> <
-        Route path = "/VerificationPermis"
-        element = { < VerificationPermisPage / > }
-        /> <
-        Route path = "/:category/manageProfile"
-        element = { < ManageProfilPage / > }
-        />
+    return (
+        <UserContextProvider>
+            <ConnectionContextProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/*" element={<HomePage />} />
+                        <Route path="/:category/login" element={<LoginPage />} />
+                        <Route path="/:category/inscription" element={<InscriptionPage />} />
+                        <Route path="/bike/location/" element={<VeloPage />} />
+                        <Route path="/car/location/" element={<VoiturePage />} />
+                        <Route path="/paymentPage" element={<PaymentPage />} />
+                        <Route path="/VerificationPermis" element={<VerificationPermisPage />} />
+                        <Route path="/:category/manageProfile" element={<ManageProfilPage />} />
 
-        <
-        /Routes> < /
-        Router > <
-        /ConnectionContextProvider> < /
-        UserContextProvider >
+                    </Routes>
+                </Router>
+            </ConnectionContextProvider>
+        </UserContextProvider>
     );
 }
 export default App; // Ceci permet d'avoir le composant app dans toute l'application.
