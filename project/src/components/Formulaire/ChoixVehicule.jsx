@@ -57,6 +57,8 @@ function ChoixVehicule(){
     }
 
   };
+  
+
   console.log(permis);
   return (
     <div className="containerBis">
