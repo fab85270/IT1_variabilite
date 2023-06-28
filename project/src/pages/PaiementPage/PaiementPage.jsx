@@ -8,10 +8,16 @@ import './PaiementPage.css'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import {PriceContext} from '../../Context/PriceContext';
 import { useNavigate } from 'react-router-dom';
+import { ConnectionContext } from '../../Context/ConnectionContext';
+import { PermisContext } from '../../Context/PermisContext';
+import { UserContext } from '../../Context/UserContext';
 
 function PaiementPage(){ 
   
   const{price,setPrice} = useContext(PriceContext); //pour utiliser contexte Prix à payer
+  const{isConnected,setIsConnected} = useContext(ConnectionContext); //pour utiliser contexte Prix à payer
+  const{permis,setPermis} = useContext(PermisContext); //pour utiliser contexte Prix à payer
+  const{changeContexteUser} = useContext(UserContext); //pour utiliser contexte Prix à payer
 
   /* Initialisation de la redirection sans rafraichissement */
   const navigate = useNavigate(); 
@@ -19,9 +25,12 @@ function PaiementPage(){
   const handleClick = () => {
     /* On part du principe que le montant sera remis à 0 lorsque ce bouton sera pressé => on ne vérifie pas si la personne à vraiment bien payé */
     setPrice(0);
+    setIsConnected(false);
+    setPermis(false);
+    changeContexteUser("","","","","");
 
     /* L'utilisateur est redirigé vers le menu principal */
-    navigate('/')
+    navigate('/');
     
   };
 

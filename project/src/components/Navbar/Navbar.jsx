@@ -12,7 +12,7 @@ const NavBar = () => {
     const{nom,prenom,changeContexteUser} = useContext(UserContext);
     const{isConnected,setIsConnected} = useContext(ConnectionContext);
     const{permis,setPermis} = useContext(PermisContext);
-    const{price,setPrice} = useContext(PermisContext);
+    const{price,setPrice} = useContext(PriceContext);
 
     const handleClick = () => { // fonction appelée quand on clique sur le lien
         changeContexteUser("","","","","");
@@ -42,6 +42,13 @@ const NavBar = () => {
                                 </Link> 
                             )
                         }
+                        {   isConnected && !permis &&(
+                                <Link to="/verificationPermis"  className="btn">
+                                    Verifier permis
+                                </Link> 
+                        )
+                            
+                        }
                         {   isConnected && (
                             <span style={{ color: 'white' }}>
                                 Welcome {nom} {prenom}
@@ -49,6 +56,7 @@ const NavBar = () => {
                         )
                             
                         }
+                        
                     </ul>
                 </nav>
             </div>
