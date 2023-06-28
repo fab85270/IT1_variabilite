@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import boiteManuelle from '../../Images/voitureManuelle.png';
 import boiteAuto from '../../Images/voitureAuto.png';
 import {PriceContext} from '../../Context/PriceContext';
+import { PermisContext } from '../../Context/PermisContext';
 import { useNavigate } from 'react-router-dom';
 import './ChoixVehicule.css';
 
@@ -12,6 +13,7 @@ function ChoixVehicule(){
   const [selectedImage, setSelectedImage] = useState(null); // pour savoir qu'elle image est séléctionnée
   const [isChecked, setIsChecked] = useState(false); // pour savoir si la case est cochée 
   const{price,setPrice} = useContext(PriceContext); //pour utiliser contexte Prix à payer
+  const{permis, setPermis} = useContext(PermisContext);
 
   /* Initialisation de la redirection sans rafraichissement */
   const navigate = useNavigate(); 
@@ -44,9 +46,13 @@ function ChoixVehicule(){
       setPrice(70);
       console.log(4);
     }
-    
-    /* Redirection vers la page de paiement */
-    navigate('/paymentPage')
+
+    // Vérification de la variable "permis"
+    if (permis) {
+      navigate('/paymentPage');
+    } else {
+      alert('Vous devez avoir un permis pour soumettre votre choix.');
+    }
 
   };
   return (
