@@ -109,6 +109,15 @@ const Inscription = () => {
                     />
                 </Form.Group>
 
+                <Form.Group controlId="motDePasse">
+                    <Form.Label>Mot de passe</Form.Label>
+                    <Form.Control
+                        type="password"
+                        value={mdp}
+                        onChange={(e) => setMdp(e.target.value)}
+                        required
+                    />
+                </Form.Group>
                 <Button variant="primary" type="submit">
                     S'inscrire
                 </Button>
