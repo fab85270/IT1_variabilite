@@ -17,7 +17,7 @@ const VerificationPermis = () => {
         setLoading(true);
         setError('');
         try{
-            const { data } = await Tesseract.recognize(file, 'eng');
+            //const { data } = await Tesseract.recognize(file, 'eng');
             //rajouter fonctionnalité lorsque permis est validé rajouter une ligne dans profil
             //Si on ne trouve pas de vrai IA "Simulation de permis validé"
             //setText(data.text);
@@ -36,10 +36,10 @@ const VerificationPermis = () => {
     <>
         <div>
             <input type="file" accept="image/*" onChange={handleImageUpload} />
-            
             {loading && <div id='chargement'>Chargement...</div>}
             {error && <div className="error">{error}</div>}
             {!loading && !error && <div id='permisValide'>{text}</div>}
+            {alert(permis)}
         </div>
     </>
     
