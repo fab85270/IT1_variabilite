@@ -11,7 +11,9 @@ const LayoutGlobal= ({children}) =>{
     return(
                 <div className="layoutGlobal"> 
                 <NavBar/>  
-                    {children} 
+                    <div id='children'>
+                        {children} 
+                    </div>
                     <Card className='footer-container'>
                         <Card.Footer className="text-muted">
                             <div clasNames="text-center">
