@@ -10,11 +10,15 @@ function HomePage(){
     <LayoutGlobal children={
         <>      
           <div>
-            <p> Bienvenue sur notre site de réservation "donner un nom"
-              + compléter avec les membres du groupes 
-              + compléter avec les rôles de chacuns
-              + voir si vous avez des idées  </p>
-              
+            <p> Bienvenue sur notre site de réservation "donner un nom"</p>
+            <p> Projet réalisé par</p>
+            <p>Maxence Bodo</p>
+            <p>Faboen Countaceau</p>
+            <p>Anxhela Joti</p>
+            <p>Isuri Kariyawasam</p>
+            <p>Sinda Abassi</p>
+            <p>Karine Anouti</p>
+            <p>Roberto Collantes</p>              
           </div>                    
         </>       
     }></LayoutGlobal>
