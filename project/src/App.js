@@ -10,7 +10,6 @@ import PaymentPage from './pages/PaiementPage/PaiementPage';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import { UserContextProvider } from './Context/UserContext';
 import { ConnectionContextProvider } from './Context/ConnectionContext';
-import PrivateRoute from './PrivateRoute';
 
 function App() {
 
@@ -24,12 +23,13 @@ function App() {
             <ConnectionContextProvider>
                 <Router>
                     <Routes>
-                        <Route path="/" element={<HomePage />} />
+                        <Route path="/*" element={<HomePage />} />
                         <Route path="/:category/login" element={<LoginPage />} />
                         <Route path="/:category/inscription" element={<InscriptionPage />} />
-                        <Route path="/bike/location" element={<PrivateRoute path="/bike/location" element={<VeloPage />} />} />
-                        <Route path="/car/location" element={<PrivateRoute path="/car/location" element={<VoiturePage />} />} />
-                        <Route path="/paymentPage" element={<PrivateRoute path="/paymentPage" element={<PaymentPage />} />} />
+                        <Route path="/bike/location/" element={<VeloPage />} />
+                        <Route path="/car/location/" element={<VoiturePage />} />
+                        <Route path="/paymentPage" element={<PaymentPage />} />
+
                     </Routes>
                 </Router>
             </ConnectionContextProvider>

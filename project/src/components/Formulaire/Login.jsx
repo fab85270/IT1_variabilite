@@ -14,9 +14,14 @@ function Login() {
 
     /* Initialisation de la redirection sans rafraichissement */
     const navigate = useNavigate();
+    // const handleNavigation = () => {
+    // navigate("/paymentPage");
+    // navigate("/paymentPage");
+    // };
+
 
     /* Méthode pour vérifier que l'utilisateur est bien authentifié */
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!adresseMail || !mdp) {
@@ -52,9 +57,9 @@ function Login() {
                                 alert("Utilisateur connecté !")
                                 setIsConnected(!isConnected)
                                 changeContexteUser(adresseMail, mdp, userInfo.nom, userInfo.prenom, userInfo.numeroTel)
-                                // navigate("/" + category + "/location");
-                                navigate("/paymentPage");
-
+                                navigate("/" + category + "/location");
+                                // navigate("/bike/inscription");
+                                ;
 
                             }
                         })
@@ -85,6 +90,12 @@ function Login() {
         5. changeContexteUser("","","","","")*/
 
     };
+
+
+
+
+
+
     return (
         <div>
             <h1>Connexion</h1>
