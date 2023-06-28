@@ -52,7 +52,6 @@ function ChoixVehicule(){
     if (permis) {
       navigate('/paymentPage');
     } else {
-      alert("valeur permis => ",permis)
       //navigate('/VerificationPermis')
       alert('Vous devez avoir valider votre permis pour soumettre votre choix.');
     }

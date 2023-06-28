@@ -12,7 +12,7 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import {UserContextProvider} from './Context/UserContext';
 import {ConnectionContextProvider} from './Context/ConnectionContext';
 import {PriceContextProvider} from './Context/PriceContext';
-import { PermisContextProvider } from './Context/PermisContext';
+import {PermisContextProvider} from './Context/PermisContext';
 
 function App() {
 
