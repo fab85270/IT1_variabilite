@@ -33,7 +33,7 @@ function App() {
                         <Route path="/bike/location/" element={<VeloPage />} />
                         <Route path="/car/location/" element={<VoiturePage />} />
                         <Route path="/paymentPage" element={<PaymentPage />} />
-                        <Route path="/VerificationPermis" element={<VerificationPermisPage />} />
+                        <Route path="/verificationPermis" element={<VerificationPermisPage />} />
 
                     </Routes>
                 </Router>

@@ -22,13 +22,12 @@ const VerificationPermis = () => {
         setPermis(true);
 
           setTimeout(() => { //permet de faire genre on a chargement de 3 secondes de l'image
-          setLoading(false);
-         
+          setLoading(false);  
         }, 3000); 
 
         setTimeout(() => { //permet de faire genre on a chargement de 5 secondes avant redirection
           setLoading(false);
-          navigate('/voitureLocation');
+          navigate('/car/location/');
         }, 8000); 
         } 
     }
