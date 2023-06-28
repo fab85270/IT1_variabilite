@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import boiteManuelle from '../../Images/voitureManuelle.png';
 import boiteAuto from '../../Images/voitureAuto.png';
+import {PriceContext} from '../../Context/PriceContext';
 import { useNavigate } from 'react-router-dom';
 import './ChoixVehicule.css';
 
@@ -10,13 +11,11 @@ function ChoixVehicule(){
   /* Definition des constantes */
   const [selectedImage, setSelectedImage] = useState(null); // pour savoir qu'elle image est séléctionnée
   const [isChecked, setIsChecked] = useState(false); // pour savoir si la case est cochée 
+  const{price,setPrice} = useContext(PriceContext); //pour utiliser contexte Prix à payer
 
   /* Initialisation de la redirection sans rafraichissement */
   const navigate = useNavigate(); 
 
-  /* Init variable price */
-
-  var price = 0;
   
   /* Méthode utilisée pour gérer le le clic sur une image dans un formulaire */
   const handleImageClick = (image) => {
@@ -32,21 +31,22 @@ function ChoixVehicule(){
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if(selectedImage == 'image1'){
-      price = 100;
+    if(selectedImage == 'image1' && !isChecked){
+      setPrice(100);
+      console.log(1);
     } else if (selectedImage == 'image1' && isChecked){
-      price = 150;
+      setPrice(150);
       console.log(2);
-    } else if(selectedImage == 'image2'){
-      price = 50;
+    } else if(selectedImage == 'image2' && !isChecked){
+      setPrice(50);
       console.log(3);
     } else if(selectedImage == 'image2' && isChecked){
-      price = 70;
+      setPrice(70);
       console.log(4);
     }
     
     /* Redirection vers la page de paiement */
-    navigate(`/paymentPage?argument=${price}`)
+    navigate('/paymentPage')
 
   };
   return (

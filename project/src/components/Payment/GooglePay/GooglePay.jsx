@@ -1,6 +1,12 @@
 import GooglePayButton from '@google-pay/button-react';
+import {React, useContext} from 'react';
+import {PriceContext} from '../../../Context/PriceContext';
+
 
 const GooglePayForm = () => {
+
+    const{price} = useContext(PriceContext); //pour utiliser contexte Prix à payer
+    
     return(
         <>        
         <GooglePayButton
@@ -31,7 +37,7 @@ const GooglePayForm = () => {
                 transactionInfo: {
                 totalPriceStatus: 'FINAL',
                 totalPriceLabel: 'Total',
-                totalPrice: '100.00',
+                totalPrice: '100',
                 currencyCode: 'USD',
                 countryCode: 'US',
                 },
