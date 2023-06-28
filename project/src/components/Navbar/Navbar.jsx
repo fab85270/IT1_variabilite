@@ -2,6 +2,8 @@ import React,{useContext} from 'react';
 import {Link } from "react-router-dom";
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
+import {PermisContext} from '../../Context/PermisContext';
+import {PriceContext} from '../../Context/PriceContext';
 import './Navbar.css';
 
 const NavBar = () => {
@@ -9,9 +11,13 @@ const NavBar = () => {
     /* Récupération de la méthode changeContexteUser du context UserContext */
     const{nom,prenom,changeContexteUser} = useContext(UserContext);
     const{isConnected,setIsConnected} = useContext(ConnectionContext);
+    const{permis,setPermis} = useContext(PermisContext);
+    const{price,setPrice} = useContext(PermisContext);
 
     const handleClick = () => { // fonction appelée quand on clique sur le lien
         changeContexteUser("","","","","");
+        setPermis(false);
+        setPrice(0);
         if(isConnected == true){
             setIsConnected(false);
         }

@@ -15,6 +15,7 @@ import { ConnectionContextProvider } from './Context/ConnectionContext';
 import { PriceContextProvider } from './Context/PriceContext';
 import { PermisContextProvider } from './Context/PermisContext';
 
+
 function App() {
 
     const options = {
