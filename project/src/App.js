@@ -25,18 +25,21 @@ function App() {
     return (
         <UserContextProvider>
             <ConnectionContextProvider>
-                <Router>
-                    <Routes>
-                        <Route path="/*" element={<HomePage />} />
-                        <Route path="/:category/login" element={<LoginPage />} />
-                        <Route path="/:category/inscription" element={<InscriptionPage />} />
-                        <Route path="/bike/location/" element={<VeloPage />} />
-                        <Route path="/car/location/" element={<VoiturePage />} />
-                        <Route path="/paymentPage" element={<PaymentPage />} />
-                        <Route path="/verificationPermis" element={<VerificationPermisPage />} />
-
-                    </Routes>
-                </Router>
+               <PriceContextProvider>
+                    <PermisContextProvider>
+                        <Router>
+                            <Routes>
+                                <Route path="/*" element={<HomePage />} />
+                                <Route path="/:category/login" element={<LoginPage />} />
+                                <Route path="/:category/inscription" element={<InscriptionPage />} />
+                                <Route path="/bike/location/" element={<VeloPage />} />
+                                <Route path="/car/location/" element={<VoiturePage />} />
+                                <Route path="/paymentPage" element={<PaymentPage />} />
+                                <Route path="/verificationPermis" element={<VerificationPermisPage />} />    
+                            </Routes>
+                        </Router>
+                    </PermisContextProvider>  
+                </PriceContextProvider>
             </ConnectionContextProvider>
         </UserContextProvider>
     );
