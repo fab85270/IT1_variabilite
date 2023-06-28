@@ -1,6 +1,5 @@
 import React,{useContext} from 'react';
 import {Link } from "react-router-dom";
-import logoLigneProduit from '../../Images/logoImage.jpg';
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
 import './Navbar.css';
@@ -20,17 +19,7 @@ const NavBar = () => {
         return (
             <div className="divNav">
                 <nav>
-                    <ul className="fonction">
-                        <li>
-                            <Link to="/" className="btn" onClick={handleClick}>
-                                <img 
-                                    alt="RentYourVehicle"
-                                    src={logoLigneProduit}
-                                    wight="45"
-                                    height="45"
-                                />   
-                            </Link>  
-                        </li>    
+                    <ul className="fonction">   
                         <Link to="/" className="btn" onClick={handleClick}>
                            Home     
                         </Link>
