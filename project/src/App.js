@@ -11,7 +11,7 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import {UserContextProvider} from './Context/UserContext';
 import {ConnectionContextProvider} from './Context/ConnectionContext';
 import {PriceContextProvider} from './Context/PriceContext';
-import { PermisContext } from './Context/PermisContext';
+import { PermisContextProvider } from './Context/PermisContext';
 
 function App() {
 
@@ -24,7 +24,7 @@ function App() {
   <UserContextProvider>
     <ConnectionContextProvider>
       <PriceContextProvider>
-        <PermisContext>
+        <PermisContextProvider>
           <Router>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -36,7 +36,7 @@ function App() {
               <Route path ="/VerificationPermis" element = {<VerificationPermisPage/>}/>
             </Routes>
           </Router>
-        </PermisContext>
+        </PermisContextProvider>
       </PriceContextProvider>
     </ConnectionContextProvider>
   </UserContextProvider>

@@ -19,7 +19,6 @@ const VerificationPermis = () => {
         try{
             const { data } = await Tesseract.recognize(file, 'eng');
             //rajouter fonctionnalité lorsque permis est validé rajouter une ligne dans profil
-
             //Si on ne trouve pas de vrai IA "Simulation de permis validé"
             //setText(data.text);
             setText("Permis validé")
