@@ -20,14 +20,13 @@ const VerificationPermis = () => {
 
     if (file) { // Vérification que le peris a bien été importé 
         setPermis(true);
-
           setTimeout(() => { //permet de faire genre on a chargement de 3 secondes de l'image
           setLoading(false);  
         }, 3000); 
-
+        setLoading(false);
         setTimeout(() => { //permet de faire genre on a chargement de 5 secondes avant redirection
-          setLoading(false);
-          navigate('/car/location/');
+          
+          //navigate('/car/location/');
         }, 8000); 
         } 
     }

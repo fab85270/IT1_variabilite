@@ -9,7 +9,6 @@ import React,{createContext, useState} from 'react'
 export const PermisContextProvider = ({children}) => { 
   
     const [permis,setPermis] = useState(false);
-    console.log(permis);
     return (<PermisContext.Provider value={{permis,setPermis}}> {children} </PermisContext.Provider>)
 };
   
