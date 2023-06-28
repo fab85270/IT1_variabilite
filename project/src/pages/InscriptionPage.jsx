@@ -9,9 +9,10 @@ import { useNavigate } from 'react-router-dom';
 function InscriptionPage(){ 
   
   const navigate = useNavigate(); 
+  const category = location.pathname.split("/")[1];
 
   const handleButtonClick = () => {
-    navigate('/login');
+    navigate('/' + category + '/login');
   };
   
   return (      

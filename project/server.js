@@ -12,11 +12,12 @@ app.use(cors({
 }));
 
 // Cette requete POST permet d'ajouter un nouveau compte dans un fichier json
-app.post('/addUser', (req, res) => {
+app.post('/:category/addUser', (req, res) => {
 
     const newUser = req.body;
-    console.log(req.body)
-    fs.readFile('./src/data/users.json', 'utf8', (err, data) => {
+    const category = req.params.category;
+
+    fs.readFile('./src/data/users_' + category + '.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Echec de lecture du fichier:', err);
             res.status(500).json({ error: 'Échec de l\'ajout de l\'utilisateur' });
@@ -31,7 +32,7 @@ app.post('/addUser', (req, res) => {
         // Convertir l'array en json
         const updatedUsers = JSON.stringify(users);
 
-        fs.writeFile('./src/data/users.json', updatedUsers, 'utf8', (err) => {
+        fs.writeFile('./src/data/users_' + category + '.json', updatedUsers, 'utf8', (err) => {
             if (err) {
                 console.error('Echec d\'écriture du fichier:', err);
                 res.status(500).json({ error: 'Échec de l\'ajout de l\'utilisateur' });
@@ -43,14 +44,45 @@ app.post('/addUser', (req, res) => {
     });
 });
 
+// Cette requete GET permet de recuperer un user, a partir de ses identifiants
+app.post('/:category/login', (req, res) => {
+    // Get the email parameter from the query string
+    const email = req.body.adresseMail;
+    const mdp = req.body.mdp
+    const category = req.params.category;
+
+    // Read the user data from the JSON file
+    fs.readFile('./src/data/users_' + category + '.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Echec de lecture du fichier:', err);
+            res.status(500).json({ error: 'Échec de connexion' });
+            return;
+        }
+
+        // Parser le json en array afin de faire un push
+        const users = JSON.parse(data);
+
+        const user = users.find((u) => u.adresseMail === email && u.mdp === mdp);
+        if (user) {
+            console.log("SUCCESSS")
+            res.json(user.adresseMail)
+        } else {
+            res.status(404).json({ error: 'Identifiants incorrets' });
+        }
+
+    });
+});
+
 // Cette requete GET permet de recuperer un user, a partir de son email
 //requete example: http://localhost:3001/getUserByEmail?adresseMail=email, a remplacer "email" par un email existant
-app.get('/getUserByEmail', (req, res) => {
+app.get('/:category/getUserByEmail', (req, res) => {
     // Get the email parameter from the query string
     const email = req.query.adresseMail;
     console.log(req.query)
-        // Read the user data from the JSON file
-    fs.readFile('./src/data/users.json', 'utf8', (err, data) => {
+    const category = req.params.category;
+
+    // Read the user data from the JSON file
+    fs.readFile('./src/data/users_' + category + '.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Echec de lecture du fichier:', err);
             res.status(500).json({ error: 'Échec de la récupération de l\'utilisateur' });
@@ -73,12 +105,13 @@ app.get('/getUserByEmail', (req, res) => {
 
 // Supprimer l'utilisateur en utilisant son mail 
 // /deleteUserByEmail API endpoint
-app.delete('/deleteUserByEmail', (req, res) => {
+app.delete('/:category/deleteUserByEmail', (req, res) => {
     // Get the email parameter from the query string
     const email = req.query.adresseMail;
+    const category = req.params.category;
 
     // Read the user data from the JSON file
-    fs.readFile('./src/data/users.json', 'utf8', (err, data) => {
+    fs.readFile('./src/data/users_' + category + '.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Echec de lecture du fichier:', err);
             res.status(500).json({ error: 'Échec de la suppresion de l\'utilisateur' });

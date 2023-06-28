@@ -2,17 +2,23 @@ import React,{useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
+import { useLocation } from "react-router-dom";
+
 
 
 /* Il n'y aura pas de vérification d'homonymes lors de l'inscription d'un utilisateur */
 
 const Inscription = () => {
 
-  const URL = "http://localhost:3001"
+  const URL = "http://localhost:3001/"
   /* Récupérer méthodes de UserContext et ConnectionContext pour changer les valeurs du contexte */
   const{adresseMail,mdp,nom,prenom,numeroTel,setAdresseMail,setNom,setPrenom,setNumero,setMdp,changeContexteUser} = useContext(UserContext);
   const{isConnected,setIsConnected} = useContext(ConnectionContext);
-  
+  const location = useLocation();
+
+  // Check if the URL contains "bike"
+  const category = location.pathname.split("/")[1];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -32,7 +38,7 @@ const Inscription = () => {
     };
 
  
-    fetch(URL + '/addUser', {
+    fetch(URL + category + '/addUser/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

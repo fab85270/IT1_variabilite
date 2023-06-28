@@ -10,13 +10,47 @@ function Login() {
     /* Récupérer méthodes de UserContext et ConnectionContext pour changer les valeurs du contexte */
     const{adresseMail,mdp,changeContexteUser,setAdresseMail,setMdp} = useContext(UserContext);
     const{isConnected,setIsConnected} = useContext(ConnectionContext);
+    const URL = "http://localhost:3001/"
+    const category = location.pathname.split("/")[1];
 
     /* Initialisation de la redirection sans rafraichissement */
-    const navigate = useNavigate(); 
+    // const navigate = useNavigate(); 
 
       /* Méthode pour vérifier que l'utilisateur est bien authentifié */
-      const handleSubmit = () => {
+      const handleSubmit = (e) => {
+        e.preventDefault();
 
+         if (!adresseMail || !mdp) {
+            alert("Veuillez remplir tous les champs obligatoires.");
+            changeContexteUser("","","","",""); 
+            return;
+        }
+        
+        const newUser = {
+            adresseMail: adresseMail,
+            mdp: mdp
+        };
+        console.log(newUser)
+        fetch(URL + category + '/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newUser)
+        })
+          .then(response => response.json())
+          .then(data => {
+            if(data.error) {
+                alert("Identifiants incorrets");
+            } else {
+                alert("Utilisateur connecté !")
+                setIsConnected(!isConnected)
+
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error); 
+          });
         /* Les différentes étapes à réaliser (selon moi) 
         Etape 1 : Récupérer les données saisies dans le formulaire 
         Etape 2 : Regarder si le mec essaie de se connecter au produit Bicicle ou Bagnole vu que c'est le même formulaire 
