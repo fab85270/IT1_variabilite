@@ -10,7 +10,7 @@ export const PermisContextProvider = ({children}) => {
   
     const [permis,setPermis] = useState(false);
 
-      return (<PermisContext.Provider value={{Permis,setPermis}}> {children} </PermisContext.Provider>)
+      return (<PermisContext.Provider value={{permis,setPermis}}> {children} </PermisContext.Provider>)
 };
   
   

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import Tesseract from 'tesseract.js';
+import { PermisContext } from '../../Context/PermisContext';
 
 const VerificationPermis = () => {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  const{permis,setPermis} = useContext(PermisContext);
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -20,6 +23,7 @@ const VerificationPermis = () => {
             //Si on ne trouve pas de vrai IA "Simulation de permis validé"
             //setText(data.text);
             setText("Permis validé")
+            setPermis(true);
             setLoading(false);
         }catch(error){
             setText('Erreur')
