@@ -46,6 +46,8 @@ function ChoixVehicule(){
     } else if(selectedImage == 'image2' && isChecked){
       setPrice(70);
       console.log(4);
+    }else{
+      setPrice(1);
     }
 
     // Vérification de la variable "permis"

@@ -16,6 +16,7 @@ import { ConnectionContextProvider } from './Context/ConnectionContext';
 import { PriceContextProvider } from './Context/PriceContext';
 import { PermisContextProvider } from './Context/PermisContext';
 
+
 function App() {
 
     const options = {
@@ -26,19 +27,23 @@ function App() {
     return (
         <UserContextProvider>
             <ConnectionContextProvider>
-                <Router>
-                    <Routes>
-                        <Route path="/*" element={<HomePage />} />
-                        <Route path="/:category/login" element={<LoginPage />} />
-                        <Route path="/:category/inscription" element={<InscriptionPage />} />
-                        <Route path="/bike/location/" element={<VeloPage />} />
-                        <Route path="/car/location/" element={<VoiturePage />} />
-                        <Route path="/paymentPage" element={<PaymentPage />} />
-                        <Route path="/VerificationPermis" element={<VerificationPermisPage />} />
-                        <Route path="/:category/manageProfile" element={<ManageProfilPage />} />
+                <PriceContextProvider>
+                    <PermisContextProvider>
+                        <Router>
+                            <Routes>
+                                <Route path="/*" element={<HomePage />} />
+                                <Route path="/:category/login" element={<LoginPage />} />
+                                <Route path="/:category/inscription" element={<InscriptionPage />} />
+                                <Route path="/bike/location/" element={<VeloPage />} />
+                                <Route path="/car/location/" element={<VoiturePage />} />
+                                <Route path="/paymentPage" element={<PaymentPage />} />
+                                <Route path="/verificationPermis" element={<VerificationPermisPage />} />
+                                <Route path="/:category/manageProfile" element={<ManageProfilPage />} />
 
-                    </Routes>
-                </Router>
+                            </Routes>
+                        </Router>
+                    </PermisContextProvider>
+                </PriceContextProvider>
             </ConnectionContextProvider>
         </UserContextProvider>
     );
