@@ -30,8 +30,8 @@ const VerificationPermis = () => {
             setLoading(false);
         }
     }
+    alert('Permis => '+permis);
   };
-
   return (
     <>
         <div>

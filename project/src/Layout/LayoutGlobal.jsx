@@ -14,7 +14,7 @@ const LayoutGlobal= ({children}) =>{
                     {children} 
                     <Card className='footer-container'>
                         <Card.Footer className="text-muted">
-                            <div class="text-center">
+                            <div clasNames="text-center">
                                 © 2023 Copyright: Projet MASTER 2 MIAGE - IT1 variabilité    
                             </div>
                         </Card.Footer>

@@ -55,6 +55,7 @@ function ChoixVehicule(){
     }
 
   };
+  console.log(permis);
   return (
     <div className="containerBis">
       <div className="centered">
