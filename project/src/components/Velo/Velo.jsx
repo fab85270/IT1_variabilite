@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
+import {PriceContext} from '../../Context/PriceContext';
 import './Velo.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const Velo = () => {
   const [address, setAddress] = useState('');
@@ -9,7 +12,10 @@ const Velo = () => {
   const [availableBikes, setAvailableBikes] = useState(0);
   const [availableStands, setAvailableStands] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const{price,setPrice} = useContext(PriceContext); //pour utiliser contexte Prix à payer
 
+  const navigate = useNavigate(); 
+  
   const ebikeImages = [
     'https://images.squarespace-cdn.com/content/57d61144e58c62ac0e3179cf/0545ec9c-1eca-4b4d-bf1d-5763a2eea4c8/Propella-blue-orange+background.jpeg?format=1500w&content-type=image%2Fjpeg',
     'https://cdn.futura-sciences.com/sources/images/l-urbain.jpg',
@@ -77,6 +83,8 @@ const Velo = () => {
       
             const togglePopup = () => {
               setIsOpen(!isOpen);
+              setPrice(8);
+              navigate('/paymentPage');
             };
       
             return (
@@ -108,9 +116,11 @@ const Velo = () => {
             return (
               <div className="bike-row">
                 {fakeIdd.map((fakeId) => {
-            
+          
                   const togglePopup = () => {
                     setIsOpen(!isOpen);
+                    setPrice(5);
+                    navigate('/paymentPage');
                   };
             
                   return (
