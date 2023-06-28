@@ -64,7 +64,6 @@ app.post('/:category/login', (req, res) => {
 
         const user = users.find((u) => u.adresseMail === email && u.mdp === mdp);
         if (user) {
-            console.log("SUCCESSS")
             res.json(user.adresseMail)
         } else {
             res.status(404).json({ error: 'Identifiants incorrets' });
@@ -74,11 +73,10 @@ app.post('/:category/login', (req, res) => {
 });
 
 // Cette requete GET permet de recuperer un user, a partir de son email
-//requete example: http://localhost:3001/getUserByEmail?adresseMail=email, a remplacer "email" par un email existant
+//requete example: http://localhost:3001/car/getUserByEmail?adresseMail=email, a remplacer "email" par un email existant
 app.get('/:category/getUserByEmail', (req, res) => {
     // Get the email parameter from the query string
-    const email = req.query.adresseMail;
-    console.log(req.query)
+    const email = req.query.email;
     const category = req.params.category;
 
     // Read the user data from the JSON file
@@ -110,7 +108,6 @@ app.delete('/:category/deleteUserByEmail', (req, res) => {
     const email = req.query.adresseMail;
     const category = req.params.category;
 
-    // Read the user data from the JSON file
     fs.readFile('./src/data/users_' + category + '.json', 'utf8', (err, data) => {
         if (err) {
             console.error('Echec de lecture du fichier:', err);
@@ -118,20 +115,15 @@ app.delete('/:category/deleteUserByEmail', (req, res) => {
             return;
         }
 
-        // Parse the JSON data into an array of users
         let users = JSON.parse(data);
 
-        // Find the index of the user with the matching email
         const index = users.findIndex((user) => user.adresseMail === email);
 
         if (index !== -1) {
-            // Remove the user from the array
             users.splice(index, 1);
 
-            // Convert the updated array back to JSON
             const updatedUsers = JSON.stringify(users);
 
-            // Write the updated JSON data to the file
             fs.writeFile('./src/data/users.json', updatedUsers, 'utf8', (err) => {
                 if (err) {
                     console.error('Erreur d\'écriture du fichier:', err);
