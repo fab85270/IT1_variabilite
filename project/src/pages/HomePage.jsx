@@ -16,7 +16,7 @@ function HomePage(){
             <div id='equipe'>
               <p> Projet réalisé par</p>
               <p>Maxence Bodo</p>
-              <p>Faboen Countaceau</p>
+              <p>Fabien Coutanceau</p>
               <p>Anxhela Joti</p>
               <p>Isuri Kariyawasam</p>
               <p>Sinda Abassi</p>

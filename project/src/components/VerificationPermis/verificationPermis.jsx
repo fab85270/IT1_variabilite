@@ -18,7 +18,7 @@ const VerificationPermis = () => {
 
     const file = e.target.files[0];
 
-    if (file) { // Vérification que le peris a bien été importé 
+    if (file) { // Vérification que le permis a bien été importé 
         setPermis(true);
 
           setTimeout(() => { //permet de faire genre on a chargement de 3 secondes de l'image
