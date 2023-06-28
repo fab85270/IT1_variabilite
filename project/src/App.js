@@ -7,7 +7,7 @@ import LoginPage from './pages/LoginPage';
 import InscriptionPage from './pages/InscriptionPage';
 import PaymentPage from './pages/PaiementPage/PaiementPage';
 
-import VerificationPermisPage from './pages/verificationPermisPage';
+import VerificationPermisPage from './pages/verificationPermis/verificationPermisPage';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import {UserContextProvider} from './Context/UserContext';
 import {ConnectionContextProvider} from './Context/ConnectionContext';

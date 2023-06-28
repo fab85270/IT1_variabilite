@@ -29,6 +29,7 @@ const VerificationPermis = () => {
             setText('Erreur')
             setError('Erreur lors de la reconnaissance de l\'image. Veuillez réessayer avec une autre image.')
             setLoading(false);
+            setPermis(false);
         }
     }
     alert('Permis => '+permis);
