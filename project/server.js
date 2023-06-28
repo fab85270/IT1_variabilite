@@ -145,14 +145,8 @@ app.put('/:category/users/:email', (req, res) => {
     const category = req.params.category;
     const usersFilePath = "./src/data/users_" + category + '.json'
 
-    console.log(req.params)
-    console.log(req.body)
-    console.log(usersFilePath)
-
-    // Read the existing users data from the JSON file
     const usersData = JSON.parse(fs.readFileSync(usersFilePath, 'utf8'));
 
-    // Find the user in the data based on the email
     const userIndex = usersData.findIndex((user) => user.adresseMail === userEmail);
 
     if (userIndex === -1) {
