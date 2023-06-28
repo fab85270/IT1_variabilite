@@ -5,3 +5,8 @@
     align-items: center;
     height: 100vh;
   }
+
+  #children{
+    padding-left: 5px;
+    padding-right: 5px;
+  }

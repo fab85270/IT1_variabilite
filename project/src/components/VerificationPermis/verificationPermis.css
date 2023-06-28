@@ -1,0 +1,11 @@
+#etat, #verifPermis{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+
+}
+#etat{
+    text-align: center;
+    font-size: xx-large;
+}

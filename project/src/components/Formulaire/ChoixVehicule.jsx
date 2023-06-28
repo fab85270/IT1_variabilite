@@ -13,7 +13,8 @@ function ChoixVehicule(){
   const [selectedImage, setSelectedImage] = useState(null); // pour savoir qu'elle image est séléctionnée
   const [isChecked, setIsChecked] = useState(false); // pour savoir si la case est cochée 
   const{price,setPrice} = useContext(PriceContext); //pour utiliser contexte Prix à payer
-  const{permis, setPermis} = useContext(PermisContext);
+
+  const{permis} = useContext(PermisContext);
 
   /* Initialisation de la redirection sans rafraichissement */
   const navigate = useNavigate(); 
@@ -51,10 +52,12 @@ function ChoixVehicule(){
     if (permis) {
       navigate('/paymentPage');
     } else {
-      alert('Vous devez avoir un permis pour soumettre votre choix.');
+      //navigate('/VerificationPermis')
+      alert('Vous devez avoir valider votre permis pour soumettre votre choix.');
     }
 
   };
+  console.log(permis);
   return (
     <div className="containerBis">
       <div className="centered">
