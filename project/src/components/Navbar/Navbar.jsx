@@ -45,7 +45,7 @@ const NavBar = () => {
                             </Link>
                         )
                     }
-                    {isConnected && !permis && (
+                    {isConnected && !permis && category === "car" && (
                         <Link to="/verificationPermis" className="btn">
                             Verifier permis
                         </Link>

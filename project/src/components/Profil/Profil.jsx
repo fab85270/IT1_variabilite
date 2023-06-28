@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserContext"
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 
 const UserInfoForm = () => {
@@ -9,6 +10,7 @@ const UserInfoForm = () => {
     // const { isConnected, setIsConnected } = useContext(ConnectionContext);
     const URL = "http://localhost:3001/"
     const category = location.pathname.split("/")[1];
+    const navigate = useNavigate();
 
     console.log(adresseMail)
     // Handle form submission
@@ -35,6 +37,7 @@ const UserInfoForm = () => {
                 // Update the user context with the modified user data
                 changeContexteUser(adresseMail, mdp, nom, prenom, numeroTel)
                 alert("User data updated successfully!");
+                navigate("/" + category + "/location")
             })
             .catch((error) => {
                 console.error("Error:", error);
