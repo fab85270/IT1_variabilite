@@ -2,17 +2,23 @@ import React,{useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import {UserContext} from '../../Context/UserContext';
 import {ConnectionContext} from '../../Context/ConnectionContext';
-import { Navigate } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+
 
 
 /* Il n'y aura pas de vérification d'homonymes lors de l'inscription d'un utilisateur */
 
 const Inscription = () => {
 
+  const URL = "http://localhost:3001/"
   /* Récupérer méthodes de UserContext et ConnectionContext pour changer les valeurs du contexte */
   const{adresseMail,mdp,nom,prenom,numeroTel,setAdresseMail,setNom,setPrenom,setNumero,setMdp,changeContexteUser} = useContext(UserContext);
   const{isConnected,setIsConnected} = useContext(ConnectionContext);
-  
+  const location = useLocation();
+
+  // Check if the URL contains "bike"
+  const category = location.pathname.split("/")[1];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -22,7 +28,33 @@ const Inscription = () => {
       changeContexteUser("","","","",""); 
       return;
     }
-    
+
+    const newUser = {
+      nom: nom,
+      prenom: prenom,
+      numeroTel: numeroTel,
+      adresseMail: adresseMail,
+      mdp: mdp
+    };
+
+ 
+    fetch(URL + category + '/addUser/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newUser)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server
+        alert("Utilisateur ajouté avec succès !")
+        setIsConnected(!isConnected)
+      })
+      .catch(error => {
+        console.error('Error:', error); 
+      });
+
     /* Etape à réaliser ensuite */
     /*
     1.  Inscrire dans un fichier JSON ou une base  de données les informations de l'utilisateur qui vient de s'enregistrer.

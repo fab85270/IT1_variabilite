@@ -23,10 +23,10 @@ const NavBar = () => {
                         <Link to="/" className="btn" onClick={handleClick}>
                            Home     
                         </Link>
-                        <Link to="/inscription" className="btn" onClick={handleClick}>
+                        <Link to="/car/inscription" className="btn" onClick={handleClick}>
                             RunYourCar
                         </Link>
-                        <Link to="/inscription"  className="btn" onClick={handleClick}>
+                        <Link to="/bike/inscription"  className="btn" onClick={handleClick}>
                             RunYourBycicle
                         </Link> 
                         {
