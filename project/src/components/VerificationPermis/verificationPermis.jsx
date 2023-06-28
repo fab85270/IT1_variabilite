@@ -1,6 +1,7 @@
 import React, { useState,useContext } from 'react';
 import Tesseract from 'tesseract.js';
 import { PermisContext } from '../../Context/PermisContext';
+import './verificationPermis.css'
 
 const VerificationPermis = () => {
   const [text, setText] = useState('');
@@ -33,15 +34,16 @@ const VerificationPermis = () => {
     alert('Permis => '+permis);
   };
   return (
-    <>
-        <div>
+    <div id='box'>
+        <div id='verifPermis'>
             <input type="file" accept="image/*" onChange={handleImageUpload} />
+        </div>
+        <div id='etat'>
             {loading && <div id='chargement'>Chargement...</div>}
             {error && <div className="error">{error}</div>}
-            {!loading && !error && <div id='permisValide'>{text}</div>}
-            {alert(permis)}
+            {permis && <div id='permisValide'>{text}<br/><img src="https://cdn2.iconfinder.com/data/icons/happy-running-errands-3/512/happy_running_errands_drive-512.png"></img></div>}
         </div>
-    </>
+    </div>
     
   );
 };
