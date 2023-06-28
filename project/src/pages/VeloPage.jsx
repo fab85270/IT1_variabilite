@@ -8,7 +8,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 function VeloPage(){ 
   
-  
   return (      
     <LayoutGlobal children={
         <>      
