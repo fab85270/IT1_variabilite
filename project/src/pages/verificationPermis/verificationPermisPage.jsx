@@ -1,4 +1,3 @@
-
 import React from 'react';
 import LayoutGlobal from '../../Layout/LayoutGlobal';
 import VerificationPermis from '../../components/VerificationPermis/verificationPermis';
